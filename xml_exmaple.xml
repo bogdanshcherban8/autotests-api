@@ -1,0 +1,17 @@
+<person>
+    <id>1</id>
+    <first_name>
+        John
+    </first_name>
+    <last_name>
+        Doe
+    </last_name>
+    <email>
+        johndoe@example.com
+    </email>
+    <address>
+        <street>Main street 1</street>
+        <city>New York/city></city>
+        <zip>321</zip>
+    </address>
+</person>
