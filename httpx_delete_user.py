@@ -1,0 +1,25 @@
+import httpx
+from tools.fakers import get_random_email
+
+create_user_data = {  "email": get_random_email(),
+  "password": "string",
+  "lastName": "string",
+  "firstName": "string",
+  "middleName": "string"}
+
+create_user_response = httpx.post("http://localhost:8000/api/v1/users", json=create_user_data)
+print(create_user_response.json())
+print(create_user_response.status_code)
+create_user_id = create_user_response.json()
+
+login_user_data = {"email": create_user_data["email"], "password": create_user_data["password"]}
+
+login_user_response = httpx.post("http://localhost:8000/api/v1/authentication/login", json = login_user_data)
+print(login_user_response.json())
+print(login_user_response.status_code)
+login_token = login_user_response.json()
+
+access_token = {"Authorization": f"Bearer {login_token["token"]["accessToken"]}"}
+delete_user_response = httpx.delete(f"http://localhost:8000/api/v1/users/{create_user_id["user"]["id"]}", headers =access_token)
+print(delete_user_response.json())
+print(delete_user_response.status_code)
