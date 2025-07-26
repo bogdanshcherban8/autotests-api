@@ -1,7 +1,7 @@
 import httpx
-from tools.fakers import get_random_email
+from tools.fakers import fake
 
-create_user_data = {  "email": get_random_email(),
+create_user_data = {  "email": fake.email(),
   "password": "string",
   "lastName": "string",
   "firstName": "string",
