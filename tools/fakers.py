@@ -8,8 +8,8 @@ class Fake:
         return self.faker.text()
     def uuid4(self)->str:
         return self.faker.uuid4()
-    def email(self)->str:
-        return self.faker.email()
+    def email(self, domain: str | None = None) -> str:
+        return self.faker.email(domain=domain)
     def sentence(self)->str:
         return self.faker.sentence()
     def password(self)->str:

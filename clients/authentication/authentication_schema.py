@@ -19,4 +19,4 @@ class RefreshTokenSchema(BaseModel):
     """
     Описание структуры запроса для обновления токена.
     """
-    refresh_token: str = Field(alias="refreshToken", default_factorty=fake.sentence)
+    refresh_token: str = Field(alias="refreshToken", default_factory=fake.sentence)

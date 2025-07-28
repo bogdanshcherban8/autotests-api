@@ -12,7 +12,6 @@ class AuthenticationUserSchema(BaseModel):
     email: str
     password: str
 
-
 def get_private_http_client(user: AuthenticationUserSchema) -> Client:
     authentication_client = get_authentication_client()
     login_request = LoginRequestSchema(email=user.email, password=user.password)
